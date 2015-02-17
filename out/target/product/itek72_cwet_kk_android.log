@@ -1,0 +1,30 @@
+cfg_folder:out/target/product/itek72_cwet_kk/obj/CUSTGEN/custom/hal/ant
+out/target/product/itek72_cwet_kk/obj/CUSTGEN/custom/hal/combo
+mediatek/external/combo_tool/product_package.mk:242: building SOC_CONSYS
+mediatek/external/combo_tool/product_package.mk:245: building SOC_CONSYS ant mode
+mediatek/external/combo_tool/product_package.mk:249: building mt6572_82_patch_e1_hdr
+mediatek/external/combo_tool/product_package.mk:253: building SOC_CONSYS finished
+find: `mediatek/protect/frameworks/base/*/': No such file or directory
+find: `mediatek/protect': No such file or directory
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=4.4.2
+TARGET_PRODUCT=itek72_cwet_kk
+TARGET_BUILD_VARIANT=eng
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm
+TARGET_ARCH_VARIANT=armv7-a-neon
+TARGET_CPU_VARIANT=cortex-a7
+HOST_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-2.6.32-38-generic-x86_64-with-Ubuntu-10.04-lucid
+HOST_BUILD_TYPE=release
+BUILD_ID=KOT49H
+OUT_DIR=out
+============================================
+Checking build tools versions...
+PRODUCT_COPY_FILES frameworks/base/data/sounds/effects/ogg/camera_click_48k.ogg:system/media/audio/ui/camera_click.ogg ignored.
+No private recovery resources for TARGET_DEVICE itek72_cwet_kk
+No recovery.fstab for TARGET_DEVICE itek72_cwet_kk
+Entire build directory removed.
