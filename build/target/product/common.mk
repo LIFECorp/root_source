@@ -123,26 +123,15 @@ PRODUCT_PACKAGES := \
     factory \
     libaudio.usb.default \
     AccountAndSyncSettings \
-    DeskClock \
-    AlarmProvider \
     Bluetooth \
-    Calculator \
-    Calendar \
     CertInstaller \
     DrmProvider \
-    Email \
     FusedLocation \
     TelephonyProvider \
-    Exchange2 \
     LatinIME \
-    Music \
-    MusicFX \
-    SoundRecorder \
-    Protips \
     ApplicationsProvider \
     OneTimeInitializer \
     PrintSpooler \
-    QuickSearchBox \
     Settings \
     Sync \
     SystemUI \
@@ -508,7 +497,6 @@ PRODUCT_PACKAGES := \
     libperfservice_test \
     libperfservice_jni \
     libperfservicenative \
-    Videos \
     lcdc_screen_cap \
     tiny_switch \
     sn \
@@ -620,10 +608,6 @@ ifeq ($(strip $(MTK_EXTERNAL_DONGLE_SUPPORT)), yes)
   $(call inherit-product-if-exists, frameworks/opt/tedongle/tedonglePermission.mk)
 endif
 #
-ifeq ($(strip $(MTK_APP_GUIDE)),yes)
-    PRODUCT_PACKAGES += ApplicationGuide
-endif
-
 ifeq ($(strip $(MTK_FLV_PLAYBACK_SUPPORT)), yes)
     PRODUCT_PACKAGES += libflv \
     libflvextractor
@@ -662,9 +646,6 @@ ifeq ($(strip $(MTK_WLAN_SUPPORT)), yes)
 endif
 PRODUCT_PACKAGES += WIFI_RAM_CODE_MT6630
 #
-ifeq ($(strip $(MTK_QQBROWSER_SUPPORT)), yes)
-  PRODUCT_PACKAGES += QQBrowser
-endif
 
 ifeq ($(strip $(MTK_TENCENT_MOBILE_MANAGER_NORMAL_SUPPORT)), yes)
   PRODUCT_PACKAGES += Tencent_Mobile_Manager_Normal
@@ -682,10 +663,6 @@ endif
 
 ifeq ($(strip $(MTK_MOBILE_MANAGEMENT)), yes)
   PRODUCT_PACKAGES += mobile_manager
-endif
-
-ifeq ($(strip $(MTK_VOICE_UNLOCK_SUPPORT)),yes)
-  PRODUCT_PACKAGES += VoiceUnlock
 endif
 
 ifeq ($(strip $(GEMINI)),yes)
@@ -895,12 +872,6 @@ else
   ril.specific.sm_cause=0
 endif
 
-ifeq ($(strip $(MTK_EMULATOR_SUPPORT)),yes)
-  PRODUCT_PACKAGES += SDKGallery
-else
-  PRODUCT_PACKAGES += Gallery2
-endif
-
 
 ifneq ($(strip $(MTK_EMULATOR_SUPPORT)),yes)
   PRODUCT_PACKAGES += Provision
@@ -908,10 +879,6 @@ endif
 
 ifeq ($(strip $(HAVE_CMMB_FEATURE)), yes)
   PRODUCT_PACKAGES += CMMBPlayer
-endif
-
-ifeq ($(strip $(MTK_DATA_TRANSFER_APP)), yes)
-  PRODUCT_PACKAGES += DataTransfer
 endif
 
 ifeq ($(strip $(MTK_MDM_APP)),yes)
@@ -931,26 +898,10 @@ ifeq ($(strip $(MTK_VT3G324M_SUPPORT)),yes)
                       vtservice
 endif
 
-ifeq ($(strip $(MTK_OOBE_APP)),yes)
-  PRODUCT_PACKAGES += OOBE
-endif
-
 ifdef MTK_WEATHER_PROVIDER_APP
   ifneq ($(strip $(MTK_WEATHER_PROVIDER_APP)), no)
     PRODUCT_PACKAGES += MtkWeatherProvider
   endif
-endif
-
-ifeq ($(strip $(MTK_VOICE_UNLOCK_SUPPORT)),yes)
-    PRODUCT_PACKAGES += VoiceCommand
-else
-        ifeq ($(strip $(MTK_VOICE_UI_SUPPORT)),yes)
-            PRODUCT_PACKAGES += VoiceCommand
-        endif
-endif
-
-ifeq ($(strip $(MTK_ENABLE_VIDEO_EDITOR)),yes)
-  PRODUCT_PACKAGES += VideoEditor
 endif
 
 ifeq ($(strip $(MTK_CALENDAR_IMPORTER_APP)), yes)
@@ -979,9 +930,6 @@ ifeq ($(strip $(MTK_INPUTMETHOD_PINYINIME_APP)), yes)
   PRODUCT_PACKAGES += PinyinIME
   PRODUCT_PACKAGES += libjni_pinyinime
 endif
-
-  PRODUCT_PACKAGES += Camera
-  PRODUCT_PACKAGES += Camera2
 
 ifeq ($(strip $(MTK_VIDEO_FAVORITES_WIDGET_APP)), yes)
   ifneq ($(strip $(MTK_TABLET_PLATFORM)), yes)
@@ -1074,32 +1022,9 @@ else
   endif
 endif
 
-ifeq ($(strip $(MTK_LIVEWALLPAPER_APP)), yes)
-  PRODUCT_PACKAGES += LiveWallpapers \
-                      LiveWallpapersPicker \
-                      MagicSmokeWallpapers \
-                      VisualizationWallpapers \
-                      Galaxy4 \
-                      HoloSpiralWallpaper \
-                      NoiseField \
-                      PhaseBeam
-endif
-
-ifeq ($(strip $(MTK_VLW_APP)), yes)
-  PRODUCT_PACKAGES += MtkVideoLiveWallpaper
-endif
-
-ifeq ($(strip $(MTK_SINA_WEIBO_SUPPORT)), yes)
-  PRODUCT_PACKAGES += Sina_Weibo
-endif
-
 ifeq ($(strip $(MTK_SYSTEM_UPDATE_SUPPORT)), yes)
   PRODUCT_PACKAGES += SystemUpdate \
                       SystemUpdateAssistant
-endif
-
-ifeq ($(strip $(MTK_DATA_TRANSFER_APP)), yes)
-  PRODUCT_PACKAGES += DataTransfer
 endif
 
 ifeq ($(strip $(MTK_FM_SUPPORT)), yes)
@@ -1240,7 +1165,6 @@ ifeq ($(strip $(MTK_LAUNCHERPLUS_APP)),yes)
 endif
 
 ifeq ($(strip $(MTK_LOCKSCREEN_TYPE)),2)
-  PRODUCT_PACKAGES += MtkWallPaper
 endif
 
 ifneq ($(strip $(MTK_LOCKSCREEN_TYPE)),)
@@ -1249,8 +1173,7 @@ ifneq ($(strip $(MTK_LOCKSCREEN_TYPE)),)
 endif
 
 ifeq ($(strip $(MTK_OMA_DOWNLOAD_SUPPORT)),yes)
-  PRODUCT_PACKAGES += Browser \
-                      DownloadProvider
+  PRODUCT_PACKAGES += DownloadProvider
 endif
 
 ifeq ($(strip $(MTK_OMACP_SUPPORT)),yes)
@@ -1297,10 +1220,6 @@ ifeq ($(strip $(CUSTOM_KERNEL_GYROSCOPE)),mpu6050gy-new)
     mpud6050 \
     libmllitd \
     libmplmpd
-endif
-
-ifeq ($(strip $(MTK_FILEMANAGER_APP)), yes)
-  PRODUCT_PACKAGES += FileManager
 endif
 
 ifeq ($(strip $(MTK_ENGINEERMODE_APP)), yes)
@@ -1357,9 +1276,6 @@ ifeq ($(strip $(MTK_PLATFORM)),MT6595)
                       pvrdebug \
                       gralloc.mt6595.so
 endif
-
-# Todos is a common feature on JB
-PRODUCT_PACKAGES += Todos
 
 # ifeq ($(strip $(MTK_DT_SUPPORT)),yes)
   PRODUCT_PACKAGES += ip-up \
@@ -1691,18 +1607,6 @@ ifeq ($(strip $(MTK_SECURITY_SW_SUPPORT)), yes)
   PRODUCT_PACKAGES += AC_REGION
 endif
 
-ifeq ($(strip $(MTK_DENA_MOBAGE_APP)), yes)
-  PRODUCT_PACKAGES += Mobage
-  PRODUCT_PACKAGES += libmobage.so
-endif
-
-ifeq ($(strip $(MTK_DENA_MINIROSANGUO_APP)), yes)
-  PRODUCT_PACKAGES += MiniRoSanguo
-  PRODUCT_PACKAGES += libmobage.so
-  PRODUCT_PACKAGES += libgameocem.so
-  PRODUCT_PACKAGES += libcocosdenshionocem.so
-endif
-
 ifeq ($(strip $(MTK_CTPPPOE_SUPPORT)),yes)
   PRODUCT_PACKAGES += ip-up \
                       ip-down \
@@ -1860,17 +1764,6 @@ ifeq ($(strip $(MTK_PLATFORM)),MT6572)
   ifeq ($(strip $(MTK_GAMELOFT_GLL_ULC_WW_APP)), yes)
     PRODUCT_PACKAGES += GLLive_ULC_WW
   endif
-  # DeNA games for 6572 project
-  ifeq ($(strip $(MTK_DENA_MOBAGE_APP)), yes)
-    PRODUCT_PACKAGES += Mobage
-    PRODUCT_PACKAGES += libmobage.so
-  endif
-  ifeq ($(strip $(MTK_DENA_MINIROSANGUO_APP)), yes)
-    PRODUCT_PACKAGES += MiniRoSanguo
-    PRODUCT_PACKAGES += libmobage.so
-    PRODUCT_PACKAGES += libgameocem.so
-    PRODUCT_PACKAGES += libcocosdenshionocem.so
-  endif
 endif
 
 ifeq ($(strip $(MTK_PLATFORM)),MT6582)
@@ -1899,17 +1792,6 @@ ifeq ($(strip $(MTK_PLATFORM)),MT6582)
   endif
   ifeq ($(strip $(MTK_GAMELOFT_WONDERZOO_WW_APP)), yes)
     PRODUCT_PACKAGES += WonderZoo_WW
-  endif
-  # DeNA games for 6582 project
-  ifeq ($(strip $(MTK_DENA_MOBAGE_APP)), yes)
-    PRODUCT_PACKAGES += Mobage
-    PRODUCT_PACKAGES += libmobage.so
-  endif
-  ifeq ($(strip $(MTK_DENA_MINIROSANGUO_APP)), yes)
-    PRODUCT_PACKAGES += MiniRoSanguo
-    PRODUCT_PACKAGES += libmobage.so
-    PRODUCT_PACKAGES += libgameocem.so
-      PRODUCT_PACKAGES += libcocosdenshionocem.so
   endif
 endif
 ################################
