@@ -25,9 +25,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.config.ringtone=Backroad.ogg
 
 PRODUCT_PACKAGES += \
-    Browser \
-    Contacts \
-    DocumentsUI \
     DownloadProviderUi \
     ExternalStorageProvider \
     KeyChain \
@@ -36,9 +33,5 @@ PRODUCT_PACKAGES += \
     ProxyHandler \
     SharedStorageBackup \
     VpnDialogs
-
-ifneq ($(strip $(MTK_LCA_RAM_OPTIMIZE)), yes)
-  PRODUCT_PACKAGES += BasicDreams
-endif
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_base.mk)
